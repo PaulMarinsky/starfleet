@@ -23,4 +23,19 @@ In early December of 2018 an agreement was reached between Starfleet Service Dog
 | January 5, 2019 | Application development begins with conceptualizations and wireframing |
 
 
+#### Development 
+Development of the application began on January 5, 2018, initially as part of the requirements for a final project for the University of Kansas Coding Bootcamp. Developers Marinsky, Jimenez, and Hesemen convened to discuss the inital phases of the development processes. Collaboration on this project began with the implementation of a work-flow that would draw upon the skill sets and strengths of each developer. The team opted for a fully colloborative work-flow to start. 
+
+A scheduled in-person consultation with Starfleet Service Dogs, inc took place on January 7, 2018, during which time the team had the opportunity to discuss the deliverables of the project in further detail and confirm design layout and application functionality. 
+
+##### Technologies
+Development of the application is comprised of the following technologies:
+###### Front End
+- ReactJS
+- HTML5
+- CSS3
+- Twitter Bootstrap4
+
+
+
 
