@@ -12,8 +12,8 @@ https://www.starfleetservicedogs.org/our-mission
 In early December of 2018 an agreement was reached between Starfleet Service Dogs, inc, and UI/UX designer and developer Paul Marinsky to develop an application aimed to improve the service dog training experience. The inital application concept was to provide handlers with a means of tracking training progress. A more advanced application would provide Starfleet a resource for improving education and training standards. 
 
 ###### Timeline
-| **November 2018** | Starfleet Service Dogs, inc. is prospected as a potential client |
+| November 2018 | Starfleet Service Dogs, inc. is prospected as a potential client |
 | ----------------- | --------------------------------------------------------------------------------------------- |
-| **December 4, 2018** | Agreement is reached to develop a dyanamic resource application for training and education |
-| -------------------- | ------------------------------------------------------------------------------------------ |
+| December 4, 2018 | Agreement is reached to develop a dyanamic resource application for training and education |
+
 
