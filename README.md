@@ -4,7 +4,7 @@ Starfleet Service Dogs, inc. is a non-profit organization that provides service 
 
 https://www.starfleetservicedogs.org/
 
-#### MISSION
+#### THE STARFLEET MISSION
 Starfleet Service Dogs, Inc. aims to professionally task train, match, and sustain service dogs to mitigate an individual’s mental or physical disability. Starfleet Service Dogs, Inc. is a qualified  501(c)(3) tax-exempt nonprofit organization.   
 
 https://www.starfleetservicedogs.org/our-mission 
@@ -18,8 +18,8 @@ In early December of 2018 an agreement was reached between Starfleet Service Dog
 | --------------------------------------------- | ---------------------------------------------------------------- |
 | November 2018 | Starfleet Service Dogs, inc. is prospected as a potential client 
 | December 4, 2018 | Agreement is reached to develop a dyanamic resource application for training and education |
-| December 10, 2018 | Developer Jeber Jimenez joins the collaborative effort |
-| January 3, 2019 | Developer Nathan Hesemen joins the collaborative effort |
+| December 10, 2018 | Developer [Heber Jimenez](https://github.com/HeberJ) joins the collaborative effort |
+| January 3, 2019 | Developer [Nathan Hesemen](https://github.com/nhesemen) joins the collaborative effort |
 | January 5, 2019 | Application development begins with conceptualizations and wireframing |
 
 
