@@ -13,7 +13,7 @@ In early December of 2018 an agreement was reached between Starfleet Service Dog
 
 ###### Timeline
 | Date | Event |
-| ------------------------------------------------------------------------------------------------------------- |
+| --------------------------------------------- | ---------------------------------------------------------------- |
 | November 2018 | Starfleet Service Dogs, inc. is prospected as a potential client 
 | December 4, 2018 | Agreement is reached to develop a dyanamic resource application for training and education |
 | December 10, 2018 | Developer Jeber Jimenez joins the collaborative effort |
