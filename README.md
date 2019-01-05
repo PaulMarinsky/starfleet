@@ -30,11 +30,18 @@ A scheduled in-person consultation with Starfleet Service Dogs, inc took place o
 
 ##### Technologies
 Development of the application is comprised of the following technologies:
-###### Front End
+###### Front-end
 - ReactJS
 - HTML5
 - CSS3
 - Twitter Bootstrap4
+###### Back-end
+- ReactJS
+- NodeJS
+- Express
+###### Database
+- MongoDB
+- Mongoose
 
 
 
