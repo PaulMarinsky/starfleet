@@ -13,4 +13,7 @@ In early December of 2018 an agreement was reached between Starfleet Service Dog
 
 ###### Timeline
 | **November 2018** | Starfleet Service Dogs, inc. is prospected as a potential client |
+| ----------------- | --------------------------------------------------------------------------------------------- |
 | **December 4, 2018** | Agreement is reached to develop a dyanamic resource application for training and education |
+| -------------------- | ------------------------------------------------------------------------------------------ |
+
