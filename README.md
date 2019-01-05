@@ -28,18 +28,18 @@ Development of the application began on January 5, 2018, initially as part of th
 
 A scheduled in-person consultation with Starfleet Service Dogs, inc took place on January 7, 2018, during which time the team had the opportunity to discuss the deliverables of the project in further detail and confirm design layout and application functionality. 
 
-##### Technologies
+##### Technologies 
 Development of the application is comprised of the following technologies:
-###### Front-end
+###### Front-end /
 - ReactJS
 - HTML5
 - CSS3 / SaSS
 - Twitter Bootstrap4
-###### Back-end
+###### Back-end /
 - ReactJS
 - NodeJS
 - Express
-###### Database
+###### Database /
 - MongoDB
 - Mongoose
 
