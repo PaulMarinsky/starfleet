@@ -33,7 +33,7 @@ Development of the application is comprised of the following technologies:
 ###### Front-end
 - ReactJS
 - HTML5
-- CSS3
+- CSS3 / SaSS
 - Twitter Bootstrap4
 ###### Back-end
 - ReactJS
