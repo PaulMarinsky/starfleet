@@ -20,7 +20,8 @@ In early December of 2018 an agreement was reached between Starfleet Service Dog
 | December 4, 2018 | Agreement is reached to develop a dyanamic resource application for training and education |
 | December 10, 2018 | Developer [Heber Jimenez](https://github.com/HeberJ) joins the collaborative effort |
 | January 3, 2019 | Developer [Nathan Hesemen](https://github.com/nhesemen) joins the collaborative effort |
-| January 5, 2019 | Application development begins with conceptualizations and wireframing |
+| January 5, 2019 | Discussion of concepts and design |
+| January 7, 2019 | Development of application begins with wireframing the application layout |
 
 
 #### Development 
@@ -31,12 +32,11 @@ A scheduled in-person consultation with Starfleet Service Dogs, inc took place o
 ##### Technologies 
 Development of the application is comprised of the following technologies:
 ###### Front-end 
-- ReactJS
+- React
 - HTML5
 - CSS3 / SaSS
 - Twitter Bootstrap4
 ###### Back-end 
-- ReactJS
 - NodeJS
 - Express
 ###### Database 
