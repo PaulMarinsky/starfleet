@@ -39,9 +39,11 @@ Development of the application is comprised of the following technologies:
 ###### Back-end 
 - NodeJS
 - Express
-###### Database 
+- AWS-SDK
+###### Database / Storage
 - MongoDB
 - Mongoose
+- AWS S3
 
 
 
