@@ -38,6 +38,7 @@ Development of the application is comprised of the following technologies:
 - Twitter Bootstrap4
 ###### Back-end 
 - NodeJS
+- Multer (Multer S3)
 - Express
 - AWS-SDK
 ###### Database / Storage
