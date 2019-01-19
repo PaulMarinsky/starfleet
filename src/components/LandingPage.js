@@ -1,18 +1,21 @@
 import React from 'react';
-import auth from './auth';
-import { PromiseProvider } from 'mongoose';
+import auth from '../auth';
+// import { PromiseProvider } from 'mongoose';
 
-export const LandingPage = (props) => {
+export const LandingPage = props => {
   return (
-    <div>Landing page</div>
-    <button
-      onClick={
-        () => {
-          auth.login(() => {
-            props.history.push('/app')
+    <div>
+      <div>Landing page</div>
+
+      <button
+        onClick={() => {
+          auth.logout(() => {
+            props.history.push('/');
           });
-        }
-      }
-    > Login</button >
+        }}
+      >
+        logout
+      </button>
+    </div>
   );
-}
+};

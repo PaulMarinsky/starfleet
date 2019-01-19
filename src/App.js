@@ -1,20 +1,29 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
-import { LandingPage } from './components/LandingPage'
+import ReactDOM from 'react-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  NavLink,
+} from 'react-router-dom';
+import { LandingPage } from './components/LandingPage';
 import SignUpForm from './components/SignUpForm';
 import SignInForm from './components/SignInForm';
+import { ProtectedRoute } from './protected.route';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-
       <div className="App">
         <h1>Testing</h1>
-        <Route exact path="/" component={LandingPage} />
-        <Route exact path="/sign-up" component={SignUpForm} />
-        <Route exact path="/login" component={SignInForm} />
+        <switch>
+          <Route exact path="/" component={SignInForm} />
+          <Route exact path="/login" component={SignInForm} />
+          <ProtectedRoute exact path="/app" component={LandingPage} />
+        </switch>
       </div>
+
       // <Router>
       //   <div className="App">
       //     <div className="App_Aside"></div>
@@ -46,7 +55,6 @@ class App extends Component {
       //   </div>
 
       // </Router >
-
     );
   }
 }

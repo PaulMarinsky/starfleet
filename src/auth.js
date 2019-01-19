@@ -13,8 +13,8 @@ class Auth {
     cb();
   }
 
-  isauthenticated() {
-    return this.authenticated
+  isAuthenticated() {
+    return this.authenticated;
   }
 }
 
