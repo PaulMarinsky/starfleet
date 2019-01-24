@@ -73,10 +73,10 @@ router.get('/profile', (req, res, next) => {
       } else {
         return res.send(
           '<h1>Name: </h1>' +
-            user.username +
-            '<h2>Mail: </h2>' +
-            user.email +
-            '<br><a type="button" href="/logout">Logout</a>'
+          user.username +
+          '<h2>Mail: </h2>' +
+          user.email +
+          '<br><a type="button" href="/logout">Logout</a>'
         );
       }
     }
@@ -84,7 +84,7 @@ router.get('/profile', (req, res, next) => {
 });
 
 // GET for logout logout
-router.get('/logout', (req, res, next) => {
+router.get('/', (req, res, next) => {
   if (req.session) {
     // delete session object
     req.session.destroy(err => {

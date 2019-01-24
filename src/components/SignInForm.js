@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom';
 import auth from '../auth';
 
 class SignInForm extends Component {
+  SignIn = () => {
+    console.log('in the signin function');
+  }
+
   render() {
     return (
       <div className="FormCenter">
@@ -39,9 +43,10 @@ class SignInForm extends Component {
             <button
               className="FormField_Btn mr-20"
               onClick={() => {
-                auth.login(() => {
-                  this.props.history.push('/app');
-                });
+                this.SignIn()
+                // auth.login(() => {
+                //   this.props.history.push('/app');
+                // });
               }}
             >
               Sign In
