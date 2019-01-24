@@ -1,14 +1,13 @@
-const mongoose = require('mongoose');
-const express = require('express');
-const bodyParser = require('body-parser');
-const logger = require('morgan');
-const Data = require('./data');
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
+const mongoose = require("mongoose");
+const express = require("express");
+const bodyParser = require("body-parser");
+const logger = require("morgan");
+const Data = require("./data");
+const sesstion = require("express-session");
 
+const routes = require("./routes");
 const app = express();
 
-const routes = require('./routes');
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
@@ -16,18 +15,61 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
 }
 
 // Add routes, both API and view
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/starfleet');
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/starfleet");
 const db = mongoose.connection;
 
+// handle mongo error
+db.on('error', console.error.bind(console, 'connection error: '));
+db.once('open', () => {
+  // we connected
+});
+
+//use sessions for tracking logins
+app.use(session({
+  secret: 'work hard',
+  resave: true,
+  saveUninitialized: false,
+  store: new MongoStore({
+    mongooseConnection: db
+  })
+}));
+
+// parse incoming requests
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
+// serve static files from template
+app.use(express.static(__dirname + '/templateLogReg'));
+
+// include routes
+var routes = require('./routes/router');
+app.use('/', routes);
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  var err = new Error('File Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handler
+// define as the last app.use callback
+app.use(function (err, req, res, next) {
+  res.status(err.status || 500);
+  res.send(err.message);
+});
+
 // Start the API server
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
+
