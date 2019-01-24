@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  NavLink,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { LandingPage } from './components/LandingPage';
 import SignUpForm from './components/SignUpForm';
 import SignInForm from './components/SignInForm';
@@ -17,11 +12,12 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Testing</h1>
-        <switch>
+        <Switch>
           <Route exact path="/" component={SignInForm} />
-          <Route exact path="/login" component={SignInForm} />
+          <Route exact path="/signup" component={SignUpForm} />
           <ProtectedRoute exact path="/app" component={LandingPage} />
-        </switch>
+          <Route path="*" component={() => '404 NOT FOUND'} />
+        </Switch>
       </div>
 
       // <Router>

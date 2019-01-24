@@ -1,3 +1,5 @@
+// This is the sign in layout also the landing page.
+
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import auth from '../auth';
