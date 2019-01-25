@@ -35,9 +35,11 @@ Development of the application is comprised of the following technologies:
 - React
 - HTML5
 - CSS3 / SaSS
-- Twitter Bootstrap4
+- Bootstrap4
+- ReactStrap
 ###### Back-end 
 - NodeJS
+- Multer (Multer S3)
 - Express
 - AWS-SDK
 ###### Database / Storage
