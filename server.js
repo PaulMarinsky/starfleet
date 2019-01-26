@@ -2,28 +2,34 @@ const mongoose = require("mongoose");
 const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
-const Data = require("./data");
-const sesstion = require("express-session");
+// const Data = require("./data");
+const session = require("express-session");
 
-const routes = require("./routes");
 const app = express();
 
 const PORT = process.env.PORT || 3001;
 
+// include routes
+const routes = require("./routes/routes");
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use("/", routes);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Add routes
-app.use(routes);
-
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/starfleet");
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/starfleet",
+  { useNewUrlParser: true }
+);
+mongoose.set("useCreateIndex", true);
+
 const db = mongoose.connection;
 
 // handle mongo error
@@ -37,20 +43,26 @@ app.use(
   session({
     secret: "work hard",
     resave: true,
-    saveUninitialized: false,
-    store: new MongoStore({
-      mongooseConnection: db
-    })
+    saveUninitialized: false
+    // store: new MongoStore({
+    //   mongooseConnection: db
+    // })
   })
 );
 
 // parse incoming requests
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
 
-// include routes
-const routes = require("./routes/routes");
-app.use("/", routes);
+// proxy headers
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

@@ -3,35 +3,35 @@ const router = express.Router();
 const User = require("../models/user");
 
 //POST route for updating data
-router.post("api/signup", (req, res, next) => {
-  console.log(res + req);
+router.post("/signup", (req, res, next) => {
+  console.log("MADE it to API");
   // confirm that user typed same password twice
-  if (req.body.password !== req.body.passwordConf) {
-    const err = new Error("Passwords do not match.");
-    err.status = 400;
-    res.send("passwords dont match");
-    return next(err);
-  }
+  // if (req.body.password !== req.body.passwordConf) {
+  //   const err = new Error("Passwords do not match.");
+  //   err.status = 400;
+  //   res.send("passwords dont match");
+  //   return next(err);
+  // }
 
-  if (
-    req.body.email &&
-    req.body.username &&
-    req.body.password &&
-    req.body.passwordConf
-  ) {
+  console.log("PASSWORD SET");
+  console.log(req.body.email);
+  console.log(req.body.fullname);
+
+  if (req.body.email && req.body.fullname && req.body.password) {
     const userData = {
       email: req.body.email,
-      username: req.body.username,
-      password: req.body.password,
-      passwordConf: req.body.passwordConf
+      fullname: req.body.fullname,
+      password: req.body.password
     };
 
     User.create(userData, (error, user) => {
+      console.log(userData);
       if (error) {
-        return next(error);
+        console.log(error);
+        return res.json(error);
       } else {
-        req.session.userId = user._id;
-        return res.redirect("/app");
+        res.send(userData);
+        console.log("made it HERE");
       }
     });
   } else if (req.body.logemail && req.body.logpassword) {
