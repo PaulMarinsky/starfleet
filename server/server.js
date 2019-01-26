@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Add routes, both API and view
+// Add routes
 app.use(routes);
 
 // Connect to the Mongo DB
@@ -27,36 +27,34 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/starfleet");
 const db = mongoose.connection;
 
 // handle mongo error
-db.on('error', console.error.bind(console, 'connection error: '));
-db.once('open', () => {
+db.on("error", console.error.bind(console, "connection error: "));
+db.once("open", () => {
   // we connected
 });
 
 //use sessions for tracking logins
-app.use(session({
-  secret: 'work hard',
-  resave: true,
-  saveUninitialized: false,
-  store: new MongoStore({
-    mongooseConnection: db
+app.use(
+  session({
+    secret: "work hard",
+    resave: true,
+    saveUninitialized: false,
+    store: new MongoStore({
+      mongooseConnection: db
+    })
   })
-}));
+);
 
 // parse incoming requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
-// serve static files from template
-app.use(express.static(__dirname + '/templateLogReg'));
-
 // include routes
-const routes = require('./routes/routes');
-app.use('/', routes);
+const routes = require("./routes/routes");
+app.use("/", routes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  const err = new Error('File Not Found');
+  const err = new Error("File Not Found");
   err.status = 404;
   next(err);
 });
@@ -69,7 +67,6 @@ app.use((err, req, res, next) => {
 });
 
 // Start the API server
-app.listen(PORT, function () {
+app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
-

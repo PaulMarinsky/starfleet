@@ -26,15 +26,15 @@ const UserSchema = new mongoose.Schema({
 
 //authenticate input against database
 UserSchema.statics.authenticate = (email, password, callback) => {
-  User.findOne({ email: email }).exec(function(err, user) {
+  User.findOne({ email: email }).exec((err, user) => {
     if (err) {
       return callback(err);
     } else if (!user) {
-      var err = new Error('User not found.');
+      const err = new Error('User not found.');
       err.status = 401;
       return callback(err);
     }
-    bcrypt.compare(password, user.password, function(err, result) {
+    bcrypt.compare(password, user.password, (err, result) => {
       if (result === true) {
         return callback(null, user);
       } else {
@@ -45,9 +45,9 @@ UserSchema.statics.authenticate = (email, password, callback) => {
 };
 
 //hashing a password before saving it to the database
-UserSchema.pre('save', function(next) {
-  var user = this;
-  bcrypt.hash(user.password, 10, function(err, hash) {
+UserSchema.pre('save', (next) => {
+  const user = this;
+  bcrypt.hash(user.password, 10, (err, hash) => {
     if (err) {
       return next(err);
     }
@@ -56,5 +56,5 @@ UserSchema.pre('save', function(next) {
   });
 });
 
-var User = mongoose.model('User', UserSchema);
+const User = mongoose.model('User', UserSchema);
 module.exports = User;
