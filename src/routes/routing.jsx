@@ -1,8 +1,8 @@
 import Dashboard from '../views/dashboard/dashboard.jsx';
-import StarfleetVideos from '../views/videos/starfleetvideos/starfleetvideos.jsx';
-import MyVideos from '../views/videos/uploadedvideos/myvideos.jsx';
-import AmericanDisabilityAct from '../views/documents/AmericanDisabilityAct/amdisact.jsx';
-import VetCheck from '../views/documents/VetCheck/vetcheck.jsx';
+import StarfleetVideos from '../views/videos/starfleetvideos.jsx';
+import MyVideos from '../views/videos/myvideos.jsx';
+import AmericanDisabilityAct from '../views/documents/amdisact.jsx';
+import VetCheck from '../views/documents/vetcheck.jsx';
 
 const ThemeRoutes = [
   /* {
