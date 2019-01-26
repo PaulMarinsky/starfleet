@@ -44,7 +44,6 @@ Development of the application is comprised of the following technologies:
 - AWS-SDK
 ###### Database / Storage
 - MongoDB
-- Mongoose
 - AWS S3
 
 
