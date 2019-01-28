@@ -5,11 +5,40 @@ import { Link } from "react-router-dom";
 import auth from "../auth";
 
 class SignInForm extends Component {
-  signIn = event => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: ""
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleSubmit = event => {
     event.preventDefault();
-    console.log("in the signin function");
-    fetch("api/app").then(res => {
-      console.log(res.json());
+    console.log(this.state.password);
+    console.log(this.state.email);
+
+    fetch("/signin", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        password: this.state.password,
+        email: this.state.email
+      })
+    }).then(r => {
+      console.log(r);
+    });
+  };
+
+  handleChange = event => {
+    event.preventDefault();
+    this.setState({
+      [event.target.name]: event.target.value
     });
   };
 
@@ -27,6 +56,7 @@ class SignInForm extends Component {
               className="FormField_Input"
               placeholder="Enter your email"
               name="email"
+              onChange={this.handleChange}
             />
           </div>
 
@@ -40,11 +70,12 @@ class SignInForm extends Component {
               className="FormField_Input"
               placeholder="Enter your password"
               name="password"
+              onChange={this.handleChange}
             />
           </div>
 
           <div className="FormField">
-            <button className="FormField_Btn mr-20" onClick={this.signIn}>
+            <button className="FormField_Btn mr-20" onClick={this.handleSubmit}>
               Sign In
             </button>
 

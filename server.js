@@ -41,14 +41,22 @@ db.once("open", () => {
 //use sessions for tracking logins
 app.use(
   session({
-    secret: "work hard",
-    resave: true,
-    saveUninitialized: false
-    // store: new MongoStore({
-    //   mongooseConnection: db
-    // })
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
   })
 );
+// app.use(
+//   session({
+//     secret: "work hard",
+//     resave: true,
+//     saveUninitialized: false
+//     // store: new MongoStore({
+//     //   mongooseConnection: db
+//     // })
+//   })
+// );
 
 // parse incoming requests
 // app.use(bodyParser.json());

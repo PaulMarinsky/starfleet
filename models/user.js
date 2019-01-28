@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt-nodejs");
 
 const UserSchema = new mongoose.Schema({
   email: {
@@ -22,7 +22,9 @@ const UserSchema = new mongoose.Schema({
 //authenticate input against database
 UserSchema.statics.authenticate = (email, password, callback) => {
   console.log("Came to validation");
+  console.log(email + "  " + password);
   User.findOne({ email: email }).exec((err, user) => {
+    console.log("In find one");
     if (err) {
       return callback(err);
     } else if (!user) {
@@ -30,10 +32,14 @@ UserSchema.statics.authenticate = (email, password, callback) => {
       err.status = 401;
       return callback(err);
     }
+    console.log("In find one 2");
     bcrypt.compare(password, user.password, (err, result) => {
+      console.log("in compare");
       if (result === true) {
+        console.log("result is true");
         return callback(null, user);
       } else {
+        console.log("result is FALSE");
         return callback();
       }
     });
@@ -45,7 +51,8 @@ UserSchema.pre("save", function(next) {
   console.log("came to PRE");
   const user = this;
   console.log(user);
-  bcrypt.hash(user.password, 10, (err, hash) => {
+  // const salt = bycrypt.genSaltSync(10);
+  bcrypt.hash(user.password, bcrypt.genSaltSync(10), null, function(err, hash) {
     console.log("made it to hash");
     if (err) {
       console.log(err);

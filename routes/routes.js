@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
+const session = require("express-session");
 
 //POST route for updating data
 router.post("/signup", (req, res, next) => {
@@ -23,7 +24,7 @@ router.post("/signup", (req, res, next) => {
       fullname: req.body.fullname,
       password: req.body.password
     };
-
+    console.log("signup before create");
     User.create(userData, (error, user) => {
       console.log(userData);
       if (error) {
@@ -34,25 +35,45 @@ router.post("/signup", (req, res, next) => {
         console.log("made it HERE");
       }
     });
-  } else if (req.body.logemail && req.body.logpassword) {
-    User.authenticate(
-      req.body.logemail,
-      req.body.logpassword,
-      (error, user) => {
-        if (error || !user) {
-          const err = new Error("Wrong email or password.");
-          err.status = 401;
-          return next(err);
-        } else {
-          req.session.userId = user._id;
-          return res.redirect("/app");
-        }
-      }
-    );
+    // }
+    // else if (req.body.logemail && req.body.logpassword) {
+    //   User.authenticate(
+    //     req.body.logemail,
+    //     req.body.logpassword,
+    //     (error, user) => {
+    //       if (error || !user) {
+    //         const err = new Error("Wrong email or password.");
+    //         err.status = 401;
+    //         return next(err);
+    //       } else {
+    //         req.session.userId = user._id;
+    //         return res.redirect("/app");
+    //       }
+    //     }
+    //   );
   } else {
     const err = new Error("All fields required.");
     err.status = 400;
     return next(err);
+  }
+});
+
+router.post("/signin", (req, res, next) => {
+  // console.log(res);
+  console.log("IM HERES!");
+  if (req.body.email && req.body.password) {
+    console.log("made it b4 auth!!!");
+    User.authenticate(req.body.email, req.body.password, (error, user) => {
+      if (error || !user) {
+        const err = new Error("Wrong email or password.");
+        err.status = 401;
+        return next(err);
+      } else {
+        console.log("this is the user ID:::" + user._id);
+        req.session.userId = user._id;
+        return res.redirect("/app");
+      }
+    });
   }
 });
 
