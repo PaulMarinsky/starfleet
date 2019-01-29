@@ -10,7 +10,7 @@ class MyVideos extends React.Component {
 		return (
 			<Card>
 				<CardBody>
-					My personal training videos will display here
+				My Videos Display Here
 				</CardBody>
 			</Card>
 		);
