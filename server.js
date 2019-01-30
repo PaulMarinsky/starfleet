@@ -16,8 +16,6 @@ const routes = require("./routes/routes");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use("/", routes);
-
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -71,6 +69,8 @@ app.use(function(req, res, next) {
   );
   next();
 });
+
+app.use("/", routes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

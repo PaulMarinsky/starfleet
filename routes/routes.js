@@ -6,13 +6,6 @@ const session = require("express-session");
 //POST route for updating data
 router.post("/signup", (req, res, next) => {
   console.log("MADE it to API");
-  // confirm that user typed same password twice
-  // if (req.body.password !== req.body.passwordConf) {
-  //   const err = new Error("Passwords do not match.");
-  //   err.status = 400;
-  //   res.send("passwords dont match");
-  //   return next(err);
-  // }
 
   console.log("PASSWORD SET");
   console.log(req.body.email);
@@ -35,22 +28,6 @@ router.post("/signup", (req, res, next) => {
         console.log("made it HERE");
       }
     });
-    // }
-    // else if (req.body.logemail && req.body.logpassword) {
-    //   User.authenticate(
-    //     req.body.logemail,
-    //     req.body.logpassword,
-    //     (error, user) => {
-    //       if (error || !user) {
-    //         const err = new Error("Wrong email or password.");
-    //         err.status = 401;
-    //         return next(err);
-    //       } else {
-    //         req.session.userId = user._id;
-    //         return res.redirect("/app");
-    //       }
-    //     }
-    //   );
   } else {
     const err = new Error("All fields required.");
     err.status = 400;
