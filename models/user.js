@@ -23,7 +23,10 @@ const UserSchema = new mongoose.Schema({
 UserSchema.statics.authenticate = (email, password, callback) => {
   console.log("Came to validation");
   console.log(email + "  " + password);
-  User.findOne({ email: email }).exec((err, user) => {
+  const _search = {
+    email
+  }
+  User.findOne(_search).exec((err, user) => {
     console.log("In find one");
     if (err) {
       return callback(err);
@@ -35,10 +38,12 @@ UserSchema.statics.authenticate = (email, password, callback) => {
     console.log("In find one 2");
     bcrypt.compare(password, user.password, (err, result) => {
       console.log("in compare");
-      if (result === true) {
+      if (result) {
         console.log("result is true");
         return callback(null, user);
       } else {
+        console.log(password);
+        console.log();
         console.log("result is FALSE");
         return callback();
       }
@@ -52,7 +57,7 @@ UserSchema.pre("save", function(next) {
   const user = this;
   console.log(user);
   // const salt = bycrypt.genSaltSync(10);
-  bcrypt.hash(user.password, bcrypt.genSaltSync(10), null, function(err, hash) {
+  bcrypt.hash(user.password, bcrypt.genSaltSync(10), function(err, hash) {
     console.log("made it to hash");
     if (err) {
       console.log(err);
