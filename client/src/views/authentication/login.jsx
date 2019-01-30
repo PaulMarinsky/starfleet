@@ -15,6 +15,7 @@ import {
 } from 'reactstrap';
 import img1 from '../../assets/images/logo-light-icon.png';
 import img2 from '../../assets/images/background/dogBackground2.png';
+import auth from '../../auth';
 
 const sidebarBackground = {
   backgroundImage: 'url(' + img2 + ')',
@@ -50,17 +51,21 @@ class Login extends Component {
       }),
     })
       .then(r => {
+        auth.logout();
         console.log(r.status);
         console.log(r);
         if (r.status === 200) {
+          auth.login();
           return r.json();
         } else {
           alert('Incorrect email or password');
+          this.props.history.push('/');
         }
       })
       .then(data => {
-        console.log(data);
-        localStorage.setItem('userID', data);
+        if (auth.isAuthenticated()) {
+          this.props.history.push('/app');
+        }
       });
   };
 
