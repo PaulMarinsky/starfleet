@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 // const Data = require("./data");
 const session = require('express-session');
+const dotenv = require('dotenv');
+dotenv.config({ path: './.env' });
 
 const app = express();
 
@@ -24,7 +26,7 @@ if (process.env.NODE_ENV === 'production') {
 // Connect to the Mongo DB
 // || "mongodb://localhost/starfleet"
 mongoose.connect(
-  process.env.MONGODB_URI,
+  process.env.MONGOLAB_URI,
   { useNewUrlParser: true }
 );
 mongoose.set('useCreateIndex', true);
