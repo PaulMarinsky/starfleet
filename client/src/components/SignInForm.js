@@ -31,7 +31,10 @@ class SignInForm extends Component {
         email: this.state.email
       })
     })
-      .then(r => r.json())
+      .then(r => {
+        console.log(r.status);
+        return r.json();
+      })
       .then(data => {
         console.log(data);
       });
