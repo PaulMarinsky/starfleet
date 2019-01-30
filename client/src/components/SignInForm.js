@@ -30,9 +30,11 @@ class SignInForm extends Component {
         password: this.state.password,
         email: this.state.email
       })
-    }).then(r => {
-      console.log(r);
-    });
+    })
+      .then(r => r.json())
+      .then(data => {
+        console.log(data);
+      });
   };
 
   handleChange = event => {

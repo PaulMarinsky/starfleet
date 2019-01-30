@@ -48,7 +48,7 @@ router.post("/signin", (req, res, next) => {
       } else {
         console.log("this is the user ID:::" + user._id);
         req.session.userId = user._id;
-        return res.redirect("/app");
+        return res.json(user._id);
       }
     });
   }
