@@ -1,18 +1,25 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import "./index.css";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
+import React from 'react';
+import ReactDOM from 'react-dom';
+//import { createBrowserHistory } from 'history';
+import SignInForm from './views/authentication/login';
+import indexRoutes from './routes/index.jsx';
+import { Route, Switch } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom'
 
-const rootElement = document.getElementById("root");
+
+import './assets/scss/style.css';
+
+//const hist = createBrowserHistory();
+
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-  rootElement
-);
-
-ReactDOM.render(<App />, document.getElementById("root"));
-
-serviceWorker.unregister();
+ 
+  <HashRouter>
+    <Switch>
+        
+      {indexRoutes.map((prop, key) => {
+        return <Route path={prop.path} key={key} component={prop.component} />;
+      })}
+      <Route exact path="/" component={SignInForm} />
+    </Switch>
+  </HashRouter>
+  ,document.getElementById('root')); 
