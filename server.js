@@ -1,48 +1,51 @@
-const mongoose = require("mongoose");
-const express = require("express");
-const bodyParser = require("body-parser");
-const logger = require("morgan");
+const mongoose = require('mongoose');
+const express = require('express');
+const bodyParser = require('body-parser');
+const logger = require('morgan');
 // const Data = require("./data");
-const session = require("express-session");
+const session = require('express-session');
+const dotenv = require('dotenv');
+dotenv.config({ path: './.env' });
 
 const app = express();
 
 const PORT = process.env.PORT || 3001;
 
 // include routes
-const routes = require("./routes/routes");
+const routes = require('./routes/routes');
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
 }
 
 // Connect to the Mongo DB
+// || "mongodb://localhost/starfleet"
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/starfleet",
+  process.env.MONGOLAB_URI,
   { useNewUrlParser: true }
 );
-mongoose.set("useCreateIndex", true);
+mongoose.set('useCreateIndex', true);
 
 const db = mongoose.connection;
 
 // handle mongo error
-db.on("error", console.error.bind(console, "connection error: "));
-db.once("open", () => {
+db.on('error', console.error.bind(console, 'connection error: '));
+db.once('open', () => {
   // we connected
 });
 
 //use sessions for tracking logins
 app.use(
   session({
-    secret: "keyboard cat",
+    secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
+    cookie: { secure: true },
   })
 );
 // app.use(
@@ -60,22 +63,21 @@ app.use(
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use("/api", routes);
-
 // proxy headers
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Origin', '*');
   res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
   );
   next();
 });
 
+app.use('/api', routes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  const err = new Error("File Not Found");
+  const err = new Error('File Not Found');
   err.status = 404;
   next(err);
 });
