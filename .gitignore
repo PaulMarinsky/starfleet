@@ -1,4 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
 node_modules
@@ -7,6 +6,7 @@ node_modules
 
 # testing
 /coverage
+debug.log
 
 # production
 /build
@@ -22,3 +22,13 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .DS_Store
+
+# json and scripts
+manifest.json
+registerServiceWorker.js
+package-lock.json
+package.json
+
+# yarn
+yarn.lock
+
