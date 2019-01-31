@@ -22,6 +22,8 @@ In early December of 2018 an agreement was reached between Starfleet Service Dog
 | January 3, 2019 | Developer [Nathan Hesemen](https://github.com/nhesemen) joins the collaborative effort |
 | January 5, 2019 | Discussion of concepts and design |
 | January 7, 2019 | Development of application begins with wireframing the application layout |
+| January 15, 2019 | Completed testing of Amazon AWS integration
+| January 24, 2019 | Minimum Viable Product presented to instructors of the University of Kansas Coding Bootcamp |
 
 
 #### Development 
@@ -44,7 +46,6 @@ Development of the application is comprised of the following technologies:
 - AWS-SDK
 ###### Database / Storage
 - MongoDB
-- Mongoose
 - AWS S3
 
 
