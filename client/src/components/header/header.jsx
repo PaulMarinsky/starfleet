@@ -19,9 +19,10 @@ import {
   Col,
   Form,
   FormGroup,
-  Input
+  Input,
 } from 'reactstrap';
 import * as data from './data.jsx';
+import auth from '../../auth';
 
 /*--------------------------------------------------------------------------------*/
 /* Import images which are need for the HEADER                                    */
@@ -39,7 +40,7 @@ class Header extends React.Component {
     this.showMobilemenu = this.showMobilemenu.bind(this);
     this.sidebarHandler = this.sidebarHandler.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
     };
     this.toggleMenu = this.toggleMenu.bind(this);
   }
@@ -54,7 +55,7 @@ class Header extends React.Component {
   /*--------------------------------------------------------------------------------*/
   toggle() {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
     });
   }
   /*--------------------------------------------------------------------------------*/
@@ -95,6 +96,10 @@ class Header extends React.Component {
       default:
     }
   };
+
+  componentDidMount() {
+    console.log(auth.isAuthenticated());
+  }
 
   render() {
     return (
@@ -196,7 +201,7 @@ class Header extends React.Component {
               {/*--------------------------------------------------------------------------------*/}
               {/* Start Mega Menu Dropdown                                                       */}
               {/*--------------------------------------------------------------------------------*/}
-                <UncontrolledDropdown nav inNavbar className="mega-dropdown">
+              <UncontrolledDropdown nav inNavbar className="mega-dropdown">
                 <DropdownToggle nav>
                   {' '}
                   <i className="mdi mdi-view-grid" />
@@ -206,14 +211,14 @@ class Header extends React.Component {
                     {/*--------------------------------------------------------------------------------*/}
                     {/* Carousel [Item-1]                                                              */}
                     {/*--------------------------------------------------------------------------------*/}
-                      <Col xs="12" sm="12" md="12" lg="3">
+                    <Col xs="12" sm="12" md="12" lg="3">
                       <h5 className="mb-3 text-uppercase">Carousel</h5>
                       <UncontrolledCarousel items={data.items} />
                     </Col>
                     {/*--------------------------------------------------------------------------------*/}
                     {/* Progress [Item-2]                                                              */}
                     {/*--------------------------------------------------------------------------------*/}
-                      <Col xs="12" sm="12" md="12" lg="3">
+                    <Col xs="12" sm="12" md="12" lg="3">
                       <h5 className="mb-3 text-uppercase">Progress</h5>
                       <div className="d-flex no-block align-items-center mb-2">
                         <span>Sales</span>
@@ -270,7 +275,7 @@ class Header extends React.Component {
                     {/*--------------------------------------------------------------------------------*/}
                     {/* Contact Us [Item-3]                                                            */}
                     {/*--------------------------------------------------------------------------------*/}
-                      <Col xs="12" sm="12" md="12" lg="3">
+                    <Col xs="12" sm="12" md="12" lg="3">
                       <h5 className="mb-3 text-uppercase">Contact Us</h5>
                       <Form>
                         <FormGroup>
@@ -303,7 +308,7 @@ class Header extends React.Component {
                     {/*--------------------------------------------------------------------------------*/}
                     {/* List Style [Item-4]                                                            */}
                     {/*--------------------------------------------------------------------------------*/}
-                      <Col xs="12" sm="12" md="12" lg="3">
+                    <Col xs="12" sm="12" md="12" lg="3">
                       <h5 className="mb-3 text-uppercase">List Style</h5>
                       <ListGroup flush>
                         <ListGroupItem
@@ -350,7 +355,7 @@ class Header extends React.Component {
                     </Col>
                   </Row>
                 </DropdownMenu>
-              </UncontrolledDropdown>  
+              </UncontrolledDropdown>
               {/*--------------------------------------------------------------------------------*/}
               {/* End Mega Menu Dropdown                                                         */}
               {/*--------------------------------------------------------------------------------*/}
@@ -481,7 +486,9 @@ class Header extends React.Component {
                     </div>
                     <div className="ml-3">
                       <h4 className="mb-0">Brittani Marinsky</h4>
-                      <p className="text-muted mb-0">brittani.wilton@gmail.com</p>
+                      <p className="text-muted mb-0">
+                        brittani.wilton@gmail.com
+                      </p>
                       <Button color="info" className="btn-rounded mt-2">
                         View Profile
                       </Button>

@@ -6,6 +6,8 @@ import indexRoutes from './routes/index.jsx';
 import { Route, Switch } from 'react-router-dom';
 import { ProtectedRoute } from './protected.route';
 import { HashRouter } from 'react-router-dom';
+import Fulllayout from './layouts/fulllayout';
+// ../layouts/fulllayout.jsx
 
 import './assets/scss/style.css';
 
@@ -14,7 +16,7 @@ import './assets/scss/style.css';
 ReactDOM.render(
   <HashRouter>
     <Switch>
-      {indexRoutes.map((prop, key) => {
+      {/* {indexRoutes.map((prop, key) => {
         return (
           <ProtectedRoute
             path={prop.path}
@@ -22,8 +24,13 @@ ReactDOM.render(
             component={prop.component}
           />
         );
-      })}
-      <Route exact path="/" component={SignInForm} />
+      })} */}
+      <Route exact path="/signin" component={SignInForm} />
+      <ProtectedRoute path="/" component={Fulllayout} />
+      <ProtectedRoute path="/videos/starfleetvideos" component={Fulllayout} />
+      <ProtectedRoute path="/videos/uploadedvideos" component={Fulllayout} />
+      <ProtectedRoute path="/documents" component={Fulllayout} />
+
       {/* <Route exact path="/signup" component={SignUpForm} /> */}
     </Switch>
   </HashRouter>,

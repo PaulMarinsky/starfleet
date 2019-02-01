@@ -10,7 +10,6 @@ import {
   Form,
   Row,
   Col,
-  //	UncontrolledTooltip,
   Button,
 } from 'reactstrap';
 import img1 from '../../assets/images/logo-light-icon.png';
@@ -51,9 +50,7 @@ class Login extends Component {
       }),
     })
       .then(r => {
-        auth.logout();
-        console.log(r.status);
-        console.log(r);
+        // auth.logout();
         if (r.status === 200) {
           auth.login();
           return r.json();
@@ -64,10 +61,14 @@ class Login extends Component {
       })
       .then(data => {
         if (auth.isAuthenticated()) {
-          this.props.history.push('/app');
+          this.props.history.push('/');
         }
       });
   };
+
+  componentDidMount() {
+    console.log(auth.isAuthenticated());
+  }
 
   handleChange = event => {
     event.preventDefault();
