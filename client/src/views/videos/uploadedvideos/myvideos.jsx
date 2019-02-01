@@ -166,7 +166,7 @@ if ( 200 === response.status ) {
 
   renderVideo(video) { 
     return(
-    <video width="320" height="240" autoPlay='false' controls>
+    <video width="320" height="240" controls>
         <source src={ "https://s3.us-east-2.amazonaws.com/starfleetuploads3/" + video } type="video/mp4" />
       </video>
     )
