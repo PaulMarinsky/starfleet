@@ -10,7 +10,6 @@ import {
   Form,
   Row,
   Col,
-  //	UncontrolledTooltip,
   Button,
 } from 'reactstrap';
 import img1 from '../../assets/images/logo-light-icon.png';
