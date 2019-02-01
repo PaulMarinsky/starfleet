@@ -128,7 +128,7 @@ const profileImgUpload = multer({
  */
 function checkFileType(file, cb) {
   // Allowed ext
-  const filetypes = /jpeg|jpg|png|gif|mp4/;
+  const filetypes = /jpeg|jpg|png|gif|mp4|mpeg-4|avi|mov/;
   // Check ext
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
   // Check mime
@@ -136,7 +136,7 @@ function checkFileType(file, cb) {
   if (mimetype && extname) {
     return cb(null, true);
   } else {
-    cb('Error: Images Only!');
+    cb('Error: Invalid Video Format!');
   }
 }
 /**
