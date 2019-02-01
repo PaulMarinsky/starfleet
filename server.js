@@ -25,10 +25,7 @@ if (process.env.NODE_ENV === 'production') {
 
 // Connect to the Mongo DB
 // || "mongodb://localhost/starfleet"
-mongoose.connect(
-  process.env.MONGOLAB_URI,
-  { useNewUrlParser: true }
-);
+mongoose.connect(process.env.MONGOLAB_URI, { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);
 
 const db = mongoose.connection;
@@ -48,20 +45,6 @@ app.use(
     cookie: { secure: true },
   })
 );
-// app.use(
-//   session({
-//     secret: "work hard",
-//     resave: true,
-//     saveUninitialized: false
-//     // store: new MongoStore({
-//     //   mongooseConnection: db
-//     // })
-//   })
-// );
-
-// parse incoming requests
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
 
 // proxy headers
 app.use(function(req, res, next) {
