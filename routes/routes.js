@@ -44,16 +44,16 @@ router.post("/signup", (req, res, next) => {
 
 router.post("/signin", (req, res, next) => {
   // console.log(res);
-  console.log("IM HERES!");
+  //console.log("IM HERES!");
   if (req.body.email && req.body.password) {
-    console.log("made it b4 auth!!!");
+  //  console.log("made it b4 auth!!!");
     User.authenticate(req.body.email, req.body.password, (error, user) => {
       if (error || !user) {
         const err = new Error("Wrong email or password.");
         err.status = 401;
         return next(err);
       } else {
-        console.log("this is the user ID:::" + user._id);
+    //    console.log("this is the user ID:::" + user._id);
         req.session.userId = user._id;
         return res.json(user._id);
       }
@@ -187,8 +187,8 @@ const uploadsBusinessGallery = multer({
     }
   }),
   limits: {
-    fileSize: 200000000
-  }, // In bytes: 200000000 bytes = 200 MB
+    fileSize: 300000000
+  }, // In bytes: 300000000 bytes = 300 MB
   fileFilter: function (req, file, cb) {
     checkFileType(file, cb);
   }
