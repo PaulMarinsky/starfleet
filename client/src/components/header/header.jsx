@@ -506,7 +506,7 @@ class Header extends React.Component {
                   <DropdownItem className="border-bottom">
                     <i className="ti-settings mr-1 ml-1" /> Account Settings
                   </DropdownItem>
-                  <DropdownItem href="/pages/login">
+                  <DropdownItem href="/signin">
                     <i className="fa fa-power-off mr-1 ml-1" /> Logout
                   </DropdownItem>
                 </DropdownMenu>
