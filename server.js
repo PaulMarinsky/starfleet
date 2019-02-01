@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
-// const Data = require("./data");
 const session = require('express-session');
 const dotenv = require('dotenv');
 dotenv.config({ path: './.env' });
