@@ -13,7 +13,7 @@ class App extends Component {
       <div className="App">
         <h1>Testing</h1>
         <Router>
-        <Switch>
+          <Switch>
           <Route exact path="/" component={SignInForm} />
           <Route exact path="/signup" component={SignUpForm} />
           <ProtectedRoute exact path="/app" component={LandingPage} />
@@ -24,5 +24,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;

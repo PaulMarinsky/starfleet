@@ -11,7 +11,7 @@ debug.log
 # production
 /build
 
-# misc
+# miscellaneous
 .DS_Store
 .env
 .env.local

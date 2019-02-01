@@ -10,7 +10,6 @@ const path = require('path');
 
 const cred = require('dotenv').config();
 
-
 //POST route for updating data
 router.post("/signup", (req, res, next) => {
   console.log("MADE it to API");
@@ -250,6 +249,5 @@ router.get('/list-videos', (req, res) => {
     res.json(data);
   });
 })
-
 
 module.exports = router;
