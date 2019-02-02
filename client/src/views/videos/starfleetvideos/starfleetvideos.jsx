@@ -39,13 +39,14 @@ class StarfleetVideos extends React.Component {
 				   <source src="https://s3.us-east-2.amazonaws.com/starfleets3aws/Gentle.mp4" type="video/mp4" />
 				   </video>
 				</div>
-					
+			
+			
 
 
 
 				</CardBody>
 			</Card>
-		);
+		);  
 	}
 }
 

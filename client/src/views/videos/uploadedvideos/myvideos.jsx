@@ -63,7 +63,7 @@ if ( 200 === response.status ) {
       // If file size is larger than expected.
       if( response.data.error ) {
        if ( 'LIMIT_FILE_SIZE' === response.data.error.code ) {
-        this.ocShowAlert( 'Max size: 2MB', 'red' );
+        this.ocShowAlert( 'Max size: 300MB', 'red' );
        } else {
         console.log( response.data ); 
 // If not the given file type
