@@ -17,7 +17,7 @@ class Fulllayout extends React.Component {
       width: window.innerWidth,
       settings: [
         {
-          theme: 'light',
+          theme: 'dark',
           layout: 'vertical',
           dir: 'ltr',
           sidebartype: 'full',
