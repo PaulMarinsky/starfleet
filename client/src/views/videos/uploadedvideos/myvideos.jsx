@@ -165,19 +165,23 @@ if ( 200 === response.status ) {
  }
 
   renderVideo(video) { 
-    return(
+    return (
+        <div className='col-sm-3'>
     <video width="320" height="240" controls>
         <source src={ "https://s3.us-east-2.amazonaws.com/starfleetuploads3/" + video } type="video/mp4" />
-      </video>
+        </video>
+        </div>
     )
   }
   
 
 
 render() {
-  return(
-	  <div>
-		  <div>
+  return (
+
+    <div>
+      <h1>My Videos</h1>
+		  <div className="row">
 
         {this.state.videos.map((video) => {
           return this.renderVideo(video);
