@@ -180,7 +180,7 @@ render() {
   return (
 
     <div>
-      <h1>My Videos</h1>
+      <h1>MY VIDEOS</h1>
 		  <div className="row">
 
         {this.state.videos.map((video) => {
