@@ -212,7 +212,7 @@ class Header extends React.Component {
                     {/* Carousel [Item-1]                                                              */}
                     {/*--------------------------------------------------------------------------------*/}
                     <Col xs="12" sm="12" md="12" lg="3">
-                      <h5 className="mb-3 text-uppercase">Carousel</h5>
+                      <h5 className="mb-3 text-uppercase">Photos</h5>
                       <UncontrolledCarousel items={data.items} />
                     </Col>
                     {/*--------------------------------------------------------------------------------*/}
@@ -221,7 +221,7 @@ class Header extends React.Component {
                     <Col xs="12" sm="12" md="12" lg="3">
                       <h5 className="mb-3 text-uppercase">Progress</h5>
                       <div className="d-flex no-block align-items-center mb-2">
-                        <span>Sales</span>
+                        <span>Training</span>
                         <div className="ml-auto">
                           <span className="text-primary">
                             <i className="mdi mdi-chart-areaspline" />
@@ -230,7 +230,7 @@ class Header extends React.Component {
                       </div>
                       <Progress className="mb-3" animated value={2 * 5} />
                       <div className="d-flex no-block align-items-center mb-2">
-                        <span>Marketing</span>
+                        <span>Metrics</span>
                         <div className="ml-auto">
                           <span className="text-success">
                             <i className="mdi mdi-chart-line" />
@@ -242,34 +242,6 @@ class Header extends React.Component {
                         animated
                         color="success"
                         value="25"
-                      />
-                      <div className="d-flex no-block align-items-center mb-2">
-                        <span>Accouting</span>
-                        <div className="ml-auto">
-                          <span className="text-danger">
-                            <i className="mdi mdi-chart-arc" />
-                          </span>
-                        </div>
-                      </div>
-                      <Progress
-                        className="mb-3"
-                        animated
-                        color="danger"
-                        value={50}
-                      />
-                      <div className="d-flex no-block align-items-center mb-2">
-                        <span>Sales Ratio</span>
-                        <div className="ml-auto">
-                          <span className="text-warning">
-                            <i className="mdi mdi-chart-pie" />
-                          </span>
-                        </div>
-                      </div>
-                      <Progress
-                        className="mb-3"
-                        animated
-                        color="warning"
-                        value={70}
                       />
                     </Col>
                     {/*--------------------------------------------------------------------------------*/}
@@ -309,7 +281,7 @@ class Header extends React.Component {
                     {/* List Style [Item-4]                                                            */}
                     {/*--------------------------------------------------------------------------------*/}
                     <Col xs="12" sm="12" md="12" lg="3">
-                      <h5 className="mb-3 text-uppercase">List Style</h5>
+                      <h5 className="mb-3 text-uppercase">Dog Profile</h5>
                       <ListGroup flush>
                         <ListGroupItem
                           tag="a"
@@ -317,7 +289,7 @@ class Header extends React.Component {
                           className="border-0 pl-0 text-muted pt-0"
                         >
                           <i className="fa fa-check text-success mr-2" />
-                          Cras justo odio
+                          Katehi 
                         </ListGroupItem>
                         <ListGroupItem
                           tag="a"
@@ -325,7 +297,7 @@ class Header extends React.Component {
                           className="border-0 pl-0 text-muted pt-0"
                         >
                           <i className="fa fa-check text-success mr-2" />
-                          Dapibus ac facilisis in
+                          Age: 2 years
                         </ListGroupItem>
                         <ListGroupItem
                           tag="a"
@@ -333,7 +305,7 @@ class Header extends React.Component {
                           className="border-0 pl-0 text-muted pt-0"
                         >
                           <i className="fa fa-check text-success mr-2" />
-                          Morbi leo risus
+                          Breed: Doberman mix
                         </ListGroupItem>
                         <ListGroupItem
                           tag="a"
@@ -341,7 +313,7 @@ class Header extends React.Component {
                           className="border-0 pl-0 text-muted pt-0"
                         >
                           <i className="fa fa-check text-success mr-2" />
-                          Porta ac consectetur ac
+                          Color: Brown
                         </ListGroupItem>
                         <ListGroupItem
                           tag="a"
@@ -349,9 +321,9 @@ class Header extends React.Component {
                           className="border-0 pl-0 text-muted pt-0"
                         >
                           <i className="fa fa-check text-success mr-2" />
-                          Vestibulum at eros
+                          Weight: 65 Lb.
                         </ListGroupItem>
-                      </ListGroup>
+                      </ListGroup> 
                     </Col>
                   </Row>
                 </DropdownMenu>

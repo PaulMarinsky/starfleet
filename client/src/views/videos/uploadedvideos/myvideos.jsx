@@ -181,17 +181,8 @@ render() {
 
     <div>
       <h1>MY VIDEOS</h1>
-		  <div className="row">
 
-        {this.state.videos.map((video) => {
-          return this.renderVideo(video);
-        })
-        }
-
-		  </div>
-
-  
-    <div className="container">
+      <div className="container">
      {/* For Alert box*/}
      <div id="oc-alert-container"></div>
 {/* Single File Upload*/}
@@ -223,6 +214,18 @@ render() {
       </div>
 </div> */}
 </div>
+
+		  <div className="row">
+
+        {this.state.videos.map((video) => {
+          return this.renderVideo(video);
+        })
+        }
+
+		  </div>
+
+  
+    
    </div>
   );
  }
